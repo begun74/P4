@@ -25,7 +25,7 @@ SECRET_KEY = 'dnfn$8_1vnv-(ku@ojml%_oyyyd@q**57vjovush(ebck1-fp!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,10 +74,20 @@ WSGI_APPLICATION = 'P4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+#DATABASE_ROUTERS = ('polls.DBRouter',)
+
 DATABASES = {
     'sqllite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'postgresql': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'P4',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres033',
+        'HOST': 'localhost',
+        'PORT': '',
     },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
